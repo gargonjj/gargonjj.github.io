@@ -64,6 +64,7 @@ We created a second adapter for each VM configured as 'host only' so both of the
 - CPU: 6 cores
 - Storage: 25 GB
 - System User: webadmin
+- Adapter 2 (enp0s8) IP: 192.168.56.102/24
 
 ### 2. Database Server VM:
 - VM Name: Proyecto linux DB server
@@ -72,3 +73,4 @@ We created a second adapter for each VM configured as 'host only' so both of the
 - CPU: 6 cores
 - Storage: 25 GB
 - System User: dbadmin
+- Adapter 2 (enp0s8) IP: 192.168.56.103/24
