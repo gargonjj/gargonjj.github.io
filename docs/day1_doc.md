@@ -1,4 +1,4 @@
-#DAY 1
+# DAY 1
 
 ## REPOSITORY CREATION AND GITHUB PAGES CONFIGURATION
 
@@ -8,4 +8,38 @@ We choose to add a README.md and the MIT License, since it is the most popular
 and permissive license available on GitHub. We also added the file `_config.yml`
 to set the initial configuration, such as the project name, the web theme and
 a short description, in order to use GitHub Pages to post the project documentation.
+The chosen subject for the store is music (CDs, vinyls and cassettes.) 
+
+## API RESEARCH AND CHOSEN API
+
+After doing a research on webs and APIs, we selected
+two potential APIs for our website. These are:
+- Discogs API: One of the worlds largest music database, offering detailed information abut vinyl records, CDs and even cassettes. It also features a public marketplace where users post their physical records.
+- iTunes Search API: This API is officially provided by Apple. Working with this API seems to be really easy, since it doesn't need any complex authentication. However, it focuses exclusively on digital media.
+
+We finally chose Discogs API over iTunes, since it focuses on physical market, which fits better our project. 
+
+## WEB SCRAPING RESEARCH
+
+In order to get ready to do web scraping, it is necessary to setup our project first. So the first step
+in this process is to create and activate a virtual
+enviroment. 
+
+It is also necessary to install some libraries: `pip install requests beautifulsoup4 lxml selenium python-dotenv`
+
+This is the recommended project structure:
+```
+project/
+├── .env              
+├── requirements.txt
+├── scraper.py
+├── api_client.py
+└── data/
+    └── output.json
+```
+
+The next step is to extract the data from the web or the API, using the libraries we already installed. Once we extracted the data, we dump them into a JSON file.
+
+To make sure our work is ethical, we must respect the legal terms of service each website provides. This information is stored in the `robots.txt` file, so we must always check before we start working.
+
 
