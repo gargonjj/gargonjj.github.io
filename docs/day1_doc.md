@@ -42,4 +42,11 @@ The next step is to extract the data from the web or the API, using the librarie
 
 To make sure our work is ethical, we must respect the legal terms of service each website provides. This information is stored in the `robots.txt` file, so we must always check before we start working.
 
+## HOW TO ENABLE SECURE HTTPS SERVER AND TWO-FACTOR AUTHENITACTION
 
+To begin, we need to install the folowing web server:
+`sudo apt install apache2`
+
+The goal is to encrypt the connection between the user's browser and the server. To implement a secure server we must obtain an SSL/TLS certificate. Let's Encrpyt is a platform that provides free and open certificates. We also must install Certbot to install the certificate. 
+
+The two-factor authenticator(2FA) adds an extra layer of security by requiring a temporary code in addition to the password. In order to enable the 2FA, we must install and enable the `mod_authn_otp` Apache module. Finally, we also must create a file to stores each user's keys.
