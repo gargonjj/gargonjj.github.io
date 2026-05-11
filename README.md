@@ -1,6 +1,3 @@
-# Magaro
-A store website aimed at selling music records, as well as other music related products.
-
 # DAY 1
 
 ## REPOSITORY CREATION AND GITHUB PAGES CONFIGURATION
@@ -53,3 +50,25 @@ To begin, we need to install the folowing web server:
 The goal is to encrypt the connection between the user's browser and the server. To implement a secure server we must obtain an SSL/TLS certificate. Let's Encrpyt is a platform that provides free and open certificates. We also must install Certbot to install the certificate. 
 
 The two-factor authenticator(2FA) adds an extra layer of security by requiring a temporary code in addition to the password. In order to enable the 2FA, we must install and enable the `mod_authn_otp` Apache module. Finally, we also must create a file to stores each user's keys.
+
+## VM INSTALLATION AND CONFIGURATION
+
+We created two virtual machines based on Linux Mint(v.21.2), one for the database and the other for the web server. The first adapter is configured as NAT to allow internet access exclusively for system maintenance and downloading web dependencies
+
+We created a second adapter for each VM configured as 'host only' so both of the VM can communicate with each other.
+ 
+1. Web Server VM:
+- VM Name: Proyecto linux web server
+- OS: Linux Mint (64-Bit)
+- RAM: 23268 MB (23GB)
+- CPU: 6 cores
+- Storage: 25 GB
+- System User: webadmin
+
+2. Database Server VM:
+- VM Name: Proyecto linux DB server
+- OS: Linux Mint (64-Bit)
+- RAM: 23268 MB (23GB)
+- CPU: 6 cores
+- Storage: 25 GB
+- System User: dbadmin
