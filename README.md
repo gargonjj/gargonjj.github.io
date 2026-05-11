@@ -77,3 +77,4 @@ We created a second adapter for each VM configured as 'host only' so both of the
 
 ## ARCHITECTURE DIAGRAM
 ![*Data flow diagram*](img/arch_diagram.png)
+[^1]: *Data flow diagram*.
