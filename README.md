@@ -76,4 +76,4 @@ We created a second adapter for each VM configured as 'host only' so both of the
 - Adapter 2 (enp0s8) IP: 192.168.56.103/24
 
 ## ARCHITECTURE DIAGRAM
-![](img/arch_diagram.png)
+![*Data flow diagram*](img/arch_diagram.png)
