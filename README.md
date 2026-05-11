@@ -57,7 +57,7 @@ We created two virtual machines based on Linux Mint(v.21.2), one for the databas
 
 We created a second adapter for each VM configured as 'host only' so both of the VM can communicate with each other.
  
-1. Web Server VM:
+### 1. Web Server VM:
 - VM Name: Proyecto linux web server
 - OS: Linux Mint (64-Bit)
 - RAM: 23268 MB (23GB)
@@ -65,7 +65,7 @@ We created a second adapter for each VM configured as 'host only' so both of the
 - Storage: 25 GB
 - System User: webadmin
 
-2. Database Server VM:
+### 2. Database Server VM:
 - VM Name: Proyecto linux DB server
 - OS: Linux Mint (64-Bit)
 - RAM: 23268 MB (23GB)
