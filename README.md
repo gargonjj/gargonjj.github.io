@@ -3,7 +3,7 @@
 ## REPOSITORY CREATION AND GITHUB PAGES CONFIGURATION
 
 The first step was initializing the repository. The name "Magaro" comes
-from the first two letters of our surnames (Macias, Garcia and Rodríguez).
+from the first two letters of our surnames (Macías, García and Rodríguez).
 We choose to add a README.md and the MIT License, since it is the most popular
 and permissive license available on GitHub. We also added the file `_config.yml`
 to set the initial configuration, such as the project name, the web theme and
@@ -51,7 +51,7 @@ The goal is to encrypt the connection between the user's browser and the server.
 
 The two-factor authenticator(2FA) adds an extra layer of security by requiring a temporary code in addition to the password. In order to enable the 2FA, we must install and enable the `mod_authn_otp` Apache module. Finally, we also must create a file to stores each user's keys.
 
-## VM INSTALLATION AND CONFIGURATION
+## VM SETUP AND CONFIGURATION
 
 We created two virtual machines based on Linux Mint(v.21.2), one for the database and the other for the web server. The first adapter is configured as NAT to allow internet access exclusively for system maintenance and downloading web dependencies
 
@@ -77,3 +77,22 @@ We created a second adapter for each VM configured as 'host only' so both of the
 
 ## ARCHITECTURE DIAGRAM
 ![*Data flow diagram*](img/arch_diagram.png)
+
+
+# DAY 2
+
+## POSTGRESQL AND PGADMIN4 SETUP
+
+## FUNCTIONAL REQUIREMENTS
+
+After studying and analyzing our website, the functional requirements were established.
+
+## Data Management
+- The system must allow to create, view, edit and delete records.
+- The system must validate that all required fields are completed.
+- The system must notify the user when the entered data is not valid.
+- The system must allow users to search records by name, artist name, genre or date.
+
+## Notifications
+- The system must notify whenever a new order is created.
+
