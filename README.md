@@ -159,3 +159,17 @@ CREATE TABLE products (
 ```
 ![*A diagram showing the database tables structure*](img/database_erd.png)
 
+## VIRTUAL MACHINES CONNECTION SETUP
+
+In order to establish a functional connection between the web-server VM and the database VM, the first step is to make some changes in the postgres configuration files, in the database VM. 
+
+### Edit `postgresql.conf`
+Search for the line `listen_addresses` and change its value to `'*'`
+
+### Edit `pg_hba.conf`
+To authorize the web server IP address, it is necessary to edit the `pg_hba.conf` file, adding a new line at the end of the file with the following information:
+
+Type | Database | User | IP_address | method |
+-----------------------------------------------------
+host | all | all | 192.168.56.103/24 | scram-sha 256 |
+
