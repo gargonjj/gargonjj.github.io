@@ -83,6 +83,9 @@ We created a second adapter for each VM configured as 'host only' so both of the
 
 ## POSTGRESQL AND PGADMIN4 SETUP
 
+On our website's database machine, we installed PostgreSQL, which comes pre-installed on the Linux Mint virtual machine we're using. We also installed pgAdmin 4 from the Linux Mint software manager application, set a password for its use since we'll be storing our store's database there, and the machine is now ready to use.
+
+
 ## FUNCTIONAL REQUIREMENTS
 
 After studying and analyzing our website, the functional requirements were established.
@@ -110,3 +113,48 @@ After studying and analyzing our website, the functional requirements were estab
 Since the project structure is simple, it is possible to make the relational model without referencing a entity/relational diagram. 
 
 ![*A relational model that shows the database structure*](img/relational_model.png)
+
+## SQL DATABASE CREATION ON PGADMIN4
+
+Looking at the relational model, we defined the database structure and we created it in PgAdmin4 by command line. We used the next SQL sentence to create it:
+```SQL
+CREATE TABLE artists (
+    artist_id SERIAL PRIMARY KEY,
+    discogs_artist_id INT UNIQUE NULL,
+    name VARCHAR(150) NOT NULL,
+    profile TEXT
+);
+
+CREATE TABLE genres (
+    genre_id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE formats (
+    format_id SERIAL PRIMARY KEY,
+    name VARCHAR(30) NOT NULL UNIQUE
+);
+
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    discogs_product_id INT UNIQUE NULL,
+    title VARCHAR(255) NOT NULL,
+    artist_id INT NULL,
+    genre_id INT NULL,
+    format_id INT NULL,
+    release_date DATE,
+    reference_price NUMERIC(10,2), 
+    origin_url VARCHAR(500),         
+    img_url VARCHAR(500),         
+    last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+
+    CONSTRAINT fk_products_artists FOREIGN KEY (artist_id) 
+        REFERENCES artists(artist_id) ON DELETE RESTRICT,
+    CONSTRAINT fk_products_genres FOREIGN KEY (genre_id) 
+        REFERENCES genres(genre_id) ON DELETE RESTRICT,
+    CONSTRAINT fk_products_formats FOREIGN KEY (format_id) 
+        REFERENCES formats(format_id) ON DELETE RESTRICT
+
+```
+
