@@ -169,7 +169,7 @@ Search for the line `listen_addresses` and change its value to `'*'`
 ### Edit `pg_hba.conf`
 To authorize the web server IP address, it is necessary to edit the `pg_hba.conf` file, adding a new line at the end of the file with the following information:
 
-Type | Database | User | IP_address | method |
------------------------------------------------------
-host | all | all | 192.168.56.103/24 | scram-sha 256 |
+|Type | Database | User | IP_address | method |
+|-----|----------|------|------------|--------|
+|host | all | all | 192.168.56.103/24 | scram-sha 256 |
 
