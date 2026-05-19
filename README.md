@@ -157,4 +157,5 @@ CREATE TABLE products (
         REFERENCES formats(format_id) ON DELETE RESTRICT
 
 ```
+![*A diagram showing the database tables structure*](img/database_erd.png)
 
