@@ -87,12 +87,26 @@ We created a second adapter for each VM configured as 'host only' so both of the
 
 After studying and analyzing our website, the functional requirements were established.
 
-## Data Management
-- The system must allow to create, view, edit and delete records.
-- The system must validate that all required fields are completed.
-- The system must notify the user when the entered data is not valid.
-- The system must allow users to search records by name, artist name, genre or date.
+## Data Acquisition
+- The system must extract products information from target websites.
+- The system must read and comply with the website's `robots.txt`.
+- The scraping script must have a delay between requests to prevent server overhead.
+- The system must store all the scraped data into a JSON file.
 
-## Notifications
-- The system must notify whenever a new order is created.
+## Data Storage
+- The system must import records into the database from the JSON file.
+- The system must validate database integrity and avoid duplicate records.
 
+## WEB DEVELOPMENT
+- The system must read information from the database and inject it into the HTML document.
+- The system must create HTML and CSS files ready for deployment.
+
+## WEB PRESENTATION
+- The website must display products as read-only, with no buying options or shopping cart features.
+- The website must display images only using external URLs.
+
+## RELATIONAL MODEL
+
+Since the project's structure is simple, it is possible to make the relational model without referencing a entity/relational diagram. 
+
+![*A relational model that shows the database structure*](img/relational_model.png)
