@@ -164,17 +164,26 @@ CREATE TABLE products (
 In order to establish a functional connection between the web-server VM and the database VM, the first step is to make some changes in the postgres configuration files, in the database VM. 
 
 ### Edit `postgresql.conf`
-Search for the line `listen_addresses` and change its value to `*`
+Search for the line `listen_addresses` and change its value to `'*'`
 
 ### Edit `pg_hba.conf`
 To authorize the web server IP address, it is necessary to edit the `pg_hba.conf` file, adding a new line at the end of the file with the following information:
 
 |Type | Database | User | IP_address | method |
 |-----|----------|------|------------|--------|
-|host | all | all | 192.168.56.102/24 | scram-sha 256 |
+|host | all | all | 192.168.56.103/24 | scram-sha 256 |
 
-Finally, restart the postgres service:
-`sudo systemctl restart postgresql`
+# DAY 3
 
-In the web server, apache2 and the python module must be installed by the following command:
-`e`
+## NGINX INSTALL & CONFIGURATION
+We installed nginx with these commands in the terminal.
+
+1.    ![*Install command*](img/install_nginx_command.png)
+2.    ![*Status command*](img/status_nginx_command.png)
+3.    ![*Service Start command*](img/start_nginx_command.png)
+  
+After installing Nginx, we configure the IPs in nginx.conf. After the http block, we add a stream block with the IP address of the database machine and the port, in our case 5432.
+
+![*Stream block after http block*](img/stream_block_nginx_conf.png)
+
+
