@@ -178,9 +178,9 @@ To authorize the web server IP address, it is necessary to edit the `pg_hba.conf
 ## NGINX INSTALL & CONFIGURATION
 We installed nginx with these commands in the terminal.
 
-1.    ![*Install command*](img/install_nginx_comand.png)
-2.    ![*Status command*](img/status_nginx_comand.png)
-3.    ![*Service Start command*](img/start_nginx_comand.png)
+1.    ![*Install command*](img/install_nginx_command.png)
+2.    ![*Status command*](img/status_nginx_command.png)
+3.    ![*Service Start command*](img/start_nginx_command.png)
   
 After installing Nginx, we configure the IPs in nginx.conf. After the http block, we add a stream block with the IP address of the database machine and the port, in our case 5432.
 
