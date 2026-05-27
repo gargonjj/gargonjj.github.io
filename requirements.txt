@@ -1,0 +1,5 @@
+beatifulsoup4
+selenium
+requests
+discogs_client
+json
