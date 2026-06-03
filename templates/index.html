@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title>{{ main_title }}</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+
+        #containerGrid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 3;
+            margin: 5px
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This is {{ main_title }}!</h1>
+    <h2>Here's our favourite's selection</h2>
+    <div id="containerGrid">
+        {% for artist in artists_data.keys() %}
+        <img class="profilePic" src=" {{ artists_data[artist] }} ">
+        <p>{{ artist }}</p>
+        {% endfor%}
+
+    </div>
+
+    <img src=" {{ pic }} ">
+    
+</body>
