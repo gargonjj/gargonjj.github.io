@@ -186,4 +186,89 @@ After installing Nginx, we configure the IPs in nginx.conf. After the http block
 
 ![*Stream block after http block*](img/stream_block_nginx_conf.png)
 
+## PYTHON API CONSUMING APP
+
+As a initial approach, we started developing our API consuming app in a very simple way. The target was to figure out how the data coming from the API was structured. After reading the Discogs' official documentation, we came out with a simple prototype that would print a few artists' name on screen.
+
+```python
+import requests
+import discogs_client
+import json
+from flask import Flask, render_template
+
+artist_url = 'https://api.discogs.com/database/search?q={artist}&token={token}'
+
+artists = ['Oasis', 'Sabrina Carpenter', 'Daft Punk', 'Laur', 'Team Grimoire', 'Akira Complex', 'Duki', 'XXXTENTACION', 'Ado']
+    for artist in artists:
+        target_url = artist_url.format(artist = artist)
+        response = requests.get(target_url)
+        data = response.json()
+        artist_name = data['results'][0]['title'] 
+        if FORBBIDEN_CHAR in artist_name:
+            print(artist_name.split(' ')[0])
+        else:
+            print(artist_name)
+```
+
+The next step was to get all the other information about the artists we wanted to show in our website. After doing some research on the structure of the JSON data dumps, we got a few methods in order to decouple the code. 
+
+```python
+def info_dump(artist: str) -> dict:
+    target_url = artist_url.format(artist = artist, token = DISCOGS_TOKEN)
+    response = requests.get(target_url)
+    data = response.json()
+    artist_info = requests.get(data['results'][0]['resource_url'])
+    return artist_info.json()
+
+def get_profile_pic(artist: str) -> str:
+    artist_info = info_dump(artist)
+    profile_pic_url = artist_info['images'][0]['uri']
+    return profile_pic_url
+
+def get_artist_name(artist: str) -> str:
+    artist_info = info_dump(artist)
+    artist_name = artist_info['name']
+    if FORBBIDEN_CHAR in artist_name:
+        return artist_name.split(FORBBIDEN_CHAR)[0].strip()
+    return artist_name
+
+```
+
+This code still have some issues, since it does way too much requests, but we thought it was a solid starting point.
+
+## HTML DOCUMENT
+
+The other step in our way to build a website is, obviously, creating a HTML document. We made a really simple landing page, getting all the data from our Python app using the Python library `Flask`.
+
+```html
+<!DOCTYPE html>
+<head>
+    <title>{{ main_title }}</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+
+        #containerGrid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 3;
+            margin: 5px
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This is {{ main_title }}!</h1>
+    <h2>Here's our favourite's selection</h2>
+    <div id="containerGrid">
+        {% for artist in artists_data.keys() %}
+        <img class="profilePic" src=" {{ artists_data[artist] }} ">
+        <p>{{ artist }}</p>
+        {% endfor%}
+    </div>
+    
+</body>
+```
+
 
