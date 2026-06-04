@@ -16,11 +16,13 @@ DB_PARAMS = {
 FILE_PATH = 'templates/index.html'
 
 def get_db_connection():
-    connection = psycopg2.connect(host= "192.168.56.103",
+    con = psycopg2.connect(host= "192.168.56.103",
     database = "Magaro",
     user = "postgres",
     password = "1234",
-    port = 5432)
+    port = "5432"
+    )
+    cur = con.cursor()
 
 def get_artists():
 
