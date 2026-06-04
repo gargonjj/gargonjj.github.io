@@ -20,4 +20,8 @@ def get_profile_pic(artist: str) -> str:
     profile_pic_url = artist_info['images'][0]['uri']
     return profile_pic_url
 
-print(info_dump(artists[4]))
+target_url = artist_url.format(artist = 'Oasis')
+response = requests.get(target_url)
+data = response.json()
+
+print(info_dump('Oasis'))
