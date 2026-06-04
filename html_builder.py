@@ -31,11 +31,17 @@ def get_artists(con):
 def get_artists_names(artists):
     artists_names = []
     for artist in artists:
-        artists_names.append(artist[0])
+        artists_names.append(artist[2])
     return artists_names
 
+def get_pic_urls(artists):
+    pic_urls = []
+    for artist in artists:
+        pic_urls.append(artist[-1])
+    return pic_urls
 
-def write_html():
+
+def write_html(artists_names: list, pic_urls: list):
     with open(FILE_PATH, 'w') as f:
         html_code = f"""
 <!DOCTYPE html>
@@ -43,6 +49,7 @@ def write_html():
     <head>
         <meta charset="utf-8"/>
         <title>Magaro</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div id="headerMenu">
@@ -55,37 +62,46 @@ def write_html():
             </div>
             <div id="artists1">
                 <div class="artistInfo">
-                    <p>artist1</p>
+                    <img src="{pic_urls[0]}"/>
+                    <p>{artists_names[0]}</p>
                 </div>
                 <div class="artistInfo">
-                    <p>artist2</p>
+                    <img src="{pic_urls[1]}"/>
+                    <p>{artists_names[1]}</p>
                 </div>
                 <div class="artistInfo">
-                    <p>artist3</p>
+                    <img src="{pic_urls[2]}"/>
+                    <p>{artists_names[2]}</p>
                 </div>
             </div>
 
             <div id="artists2">
                 <div class="artistInfo">
-                    <p>artist1</p>
+                    <img src="{pic_urls[3]}"/>
+                    <p>{artists_names[3]}</p>
                 </div>
                 <div class="artistInfo">
-                    <p>artist2</p>
+                    <img src="{pic_urls[4]}"/>
+                    <p>{artists_names[4]}</p>
                 </div>
                 <div class="artistInfo">
-                    <p>artist3</p>
+                    <img src="{pic_urls[5]}"/>
+                    <p>{artists_names[5]}</p>
                 </div>
             </div>
 
             <div id="artists3">
                 <div class="artistInfo">
-                    <p>artist1</p>
+                    <img src="{pic_urls[6]}"/>
+                    <p>{artists_names[6]}</p>
                 </div>
                 <div class="artistInfo">
-                    <p>artist2</p>
+                    <img src="{pic_urls[7]}"/>
+                    <p>{artists_names[7]}</p>
                 </div>
                 <div class="artistInfo">
-                    <p>artist3</p>
+                    <img src="{pic_urls[8]}"/>
+                    <p>{artists_names[8]}</p>
                 </div>
             </div>
         </div>
