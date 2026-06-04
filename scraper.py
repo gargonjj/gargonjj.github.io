@@ -180,5 +180,3 @@ if __name__ == '__main__':
         Timer(1.2, trigger_browser).start()
 
     app.run(debug=True)
-
-1
