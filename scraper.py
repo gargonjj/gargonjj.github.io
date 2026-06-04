@@ -10,14 +10,14 @@ FORBBIDEN_CHAR = '('
 artists = ['Oasis', 'Sabrina Carpenter', 'Daft Punk']
 
 
-artist_url = 'https://api.discogs.com/database/search?q={artist}'
+artist_url = 'https://api.discogs.com/database/search?q={artist}&token={token}'
 
 app = Flask(__name__)
 
 
 #Selects the first result of searching an artist name
 def info_dump(artist: str) -> dict:
-    target_url = artist_url.format(artist = artist)
+    target_url = artist_url.format(artist = artist, token = DISCOGS_TOKEN)
     response = requests.get(target_url)
     data = response.json()
     artist_info = requests.get(data['results'][0]['resource_url'])
@@ -31,6 +31,8 @@ def get_profile_pic(artist: str) -> str:
 def get_artist_name(artist: str) -> str:
     artist_info = info_dump(artist)
     artist_name = artist_info['name']
+    if FORBBIDEN_CHAR in artist_name:
+        return artist_name.split(FORBBIDEN_CHAR)[0].strip()
     return artist_name
     
 
