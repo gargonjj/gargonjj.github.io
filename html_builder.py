@@ -17,14 +17,22 @@ FILE_PATH = 'templates/index.html'
 
 def get_db_connection():
     con = psycopg2.connect(**DB_PARAMS)
-    return con
+    return con    
 
 def get_artists(con):
     cur = con.cursor()
     query = 'SELECT * FROM artists'
     cur.execute(query)
+    artists = cur.fetchall()
+    print(artists)
     cur.close()
+    return artists
 
+def get_artists_names(artists):
+    artists_names = []
+    for artist in artists:
+        artists_names.append(artist[0])
+    return artists_names
 
 
 def write_html():
@@ -93,6 +101,5 @@ def write_html():
 """
         f.write(html_code)
 
-write_html()
-con = get_db_connection()
-print(get_artists(con))
+#write_html()
+get_db_connection()
