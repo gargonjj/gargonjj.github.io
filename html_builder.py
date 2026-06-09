@@ -56,13 +56,15 @@ def write_html(artists_names: list, pic_urls: list):
     </head>
     <body>
         <div id="headerMenu">
-            <img id="logo"/>
+            <img id="logo" src="../img/logo1.png"/>
         </div>
         <div id="container">
             <div id="aboutUs">
-                <div id="bigLogo"></div>
+                <div id="bigLogoContainer">
+                    <img id="bigLogo" src="../img/logo2.png">
+                </div>
                 <div id="aboutText">
-                    <p id="about"><span style="font-style: italic">Magaro</span> is a fan-driven space for monthly music recomendations based in personal tastes</p>
+                    <p id="about"><span style="font-style: italic">Magaro</span> is a fan-driven space for monthly music recommendations based on personal tastes.</p>
                 </div>
             </div>
             <div id="artists1">
