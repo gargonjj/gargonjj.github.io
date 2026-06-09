@@ -47,9 +47,11 @@ def write_html(artists_names: list, pic_urls: list):
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@600&display=swap" rel="stylesheet">
         <title>Magaro</title>
-        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div id="headerMenu">
@@ -58,50 +60,70 @@ def write_html(artists_names: list, pic_urls: list):
         <div id="container">
             <div id="aboutUs">
                 <div id="bigLogo"></div>
-                <div id="aboutText"></div>
+                <div id="aboutText">
+                    <p id="about"><span style="font-style: italic">Magaro</span> is a fan-driven space for monthly music recomendations based in personal tastes</p>
+                </div>
             </div>
             <div id="artists1">
                 <div class="artistInfo">
-                    <img src="{pic_urls[0]}"/>
-                    <p>{artists_names[0]}</p>
+                    <div class="picContainer">
+                        <img class="artistPic" src="{pic_urls[0]}">
+                    </div>
+                    <p class="artistName">{artists_names[0]}</p>
                 </div>
                 <div class="artistInfo">
-                    <img src="{pic_urls[1]}"/>
-                    <p>{artists_names[1]}</p>
+                    <div class="picContainer">
+                        <img class="artistPic" src="{pic_urls[1]}">
+                    </div>
+                    <p class="artistName">{artists_names[1]}</p>
                 </div>
                 <div class="artistInfo">
-                    <img src="{pic_urls[2]}"/>
-                    <p>{artists_names[2]}</p>
+                    <div class="picContainer">
+                        <img class="artistPic" src="{pic_urls[2]}">
+                    </div>
+                    <p class="artistName">{artists_names[2]}</p>
                 </div>
             </div>
 
             <div id="artists2">
                 <div class="artistInfo">
-                    <img src="{pic_urls[3]}"/>
-                    <p>{artists_names[3]}</p>
+                    <div class="picContainer">
+                        <img class="artistPic" src="{pic_urls[3]}">
+                    </div>
+                    <p class="artistName">{artists_names[3]}</p>
                 </div>
                 <div class="artistInfo">
-                    <img src="{pic_urls[4]}"/>
-                    <p>{artists_names[4]}</p>
+                    <div class="picContainer">
+                        <img class="artistPic" src="{pic_urls[4]}">
+                    </div>
+                    <p class="artistName">{artists_names[4]}</p>
                 </div>
                 <div class="artistInfo">
-                    <img src="{pic_urls[5]}"/>
-                    <p>{artists_names[5]}</p>
+                    <div class="picContainer">
+                        <img class="artistPic" src="{pic_urls[5]}">
+                    </div>
+                    <p class="artistName">{artists_names[5]}</p>
                 </div>
             </div>
 
             <div id="artists3">
                 <div class="artistInfo">
-                    <img src="{pic_urls[6]}"/>
-                    <p>{artists_names[6]}</p>
+                    <div class="picContainer">
+                        <img class="artistPic" src="{pic_urls[6]}">
+                    </div>
+                    <p class="artistName">{artists_names[6]}</p>
                 </div>
                 <div class="artistInfo">
-                    <img src="{pic_urls[7]}"/>
-                    <p>{artists_names[7]}</p>
+                    <div class="picContainer">
+                        <img class="artistPic" src="{pic_urls[7]}">
+                    </div>
+                    <p class="artistName">{artists_names[7]}</p>
                 </div>
                 <div class="artistInfo">
-                    <img src="{pic_urls[8]}"/>
-                    <p>{artists_names[8]}</p>
+                    <div class="picContainer">
+                        <img class="artistPic" src="{pic_urls[8]}">
+                    </div>
+                    <p class="artistName">{artists_names[8]}</p>
                 </div>
             </div>
         </div>
