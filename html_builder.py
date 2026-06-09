@@ -51,7 +51,7 @@ def write_html(artists_names: list, pic_urls: list):
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="style.css">
         <title>Magaro</title>
     </head>
     <body>
