@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@600&display=swap" rel="stylesheet">
+        <title>Magaro</title>
+        <style>
+
+            /* ===== body ===== */
+            body {
+                margin: 0 auto;
+                border: none;
+                background-color: beige;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            /* ===== ids ===== */
+            #headerMenu {
+                background-color: #2f2f2f;
+                width: 100%;
+                height: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #logo{
+                width: 150px;
+                height: 70%;
+                background-color: orange;
+            }
+
+            #container {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
+            #aboutUs{
+                display: grid;
+                width: 100%;
+                grid-template-columns: 50% 50%;
+            }
+
+            #bigLogo{
+                background-color: yellow;
+                width: 50vw;
+                height: 300px;
+            }
+
+            #aboutText{
+                width: 50vw;
+                margin: 0 auto;
+                margin-top: 150px;
+                padding-left: 10%;
+            }
+
+            #about {
+                font-size: 26px;
+                width: 60%;
+                margin: 30px;
+            }
+
+            #artists1{
+                width: 100%;
+                height: 1100px;
+                margin-top: -40px;
+                background-color: #E01712;
+                display: grid;
+                grid-template-columns: auto auto auto;
+                clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);   
+            }
+
+            #artists2{
+                width: 100%;
+                height: 1000px;
+                margin-top: -150px;
+                background-color: #1346E0;
+                display: grid;
+                grid-template-columns: auto auto auto;
+                clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0 80%);   
+            }
+            
+            #artists3{
+                width: 100%;
+                height: 1000px;
+                margin-top: -200px;
+                background-color: #E0C600;
+                display: grid;
+                grid-template-columns: auto auto auto;
+                clip-path: polygon(0 0%, 100% 20%, 100% 100%, 0 100%);   
+            }
+
+            #footer{
+                display: flex;
+                height: 300px;
+                justify-content: center;
+                align-items: center;
+                background-color: #2f2f2f;
+                color: #f6f6f6
+            } 
+
+            #footer > p{
+                text-align: center;
+            }
+
+            /* ===== classes ===== */
+
+            .artistInfo{
+                width: 90%;
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+            }
+
+            .picContainer {
+                width: 400px;
+                height: 400px;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+
+            .artistPic {
+                object-fit: cover;
+                width: 100%;
+                height: 400px;
+                object-position: center;
+                border-radius: 100%;
+                
+            }
+
+            .artistName {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .artistDesc {
+                width: 400px;
+                text-align: center;
+            }
+
+            /* ===== tags ===== */
+
+            p {
+                font-family: "Victor Mono", monospace;
+
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div id="headerMenu">
+            <img id="logo"/>
+        </div>
+        <div id="container">
+            <div id="aboutUs">
+                <div id="bigLogo"></div>
+                <div id="aboutText">
+                    <p id="about"><span style="font-style: italic">Magaro</span> is a fan-driven space for monthly music recomendations based in personal tastes</p>
+                </div>
+            </div>
+            <div id="artists1">
+                <div class="artistInfo">
+                    <div class="picContainer">
+                        <img class="artistPic" src="https://api.djmagla.com/wp-content/uploads/2021/02/Daft-Punk-1.jpg">
+                    </div>
+                    <p class="artistName">Daft Punk</p>
+                    <p class="artistDesc">French House and Techno muscic iconic duo that got their legend status with their second album: <span style="font-style: italic;">Discovery</span></p>
+                </div>
+                <div class="artistInfo">
+                    <div class="picContainer">
+                        <img class="artistPic" src="https://i.discogs.com/7fcWSEy0lxVS9SkTNxliH1F7GboY08KZaWLCDRVNHDE/rs:fit/g:sm/q:90/h:386/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQzNzgy/ODQtMTczNDEzNzQ3/OS01MjU2LmpwZWc.jpeg">
+                    </div>
+                    <p class="artistName">Sabrina Carpenter</p>
+                    <p class="artistDesc">A rising pop star who broke all the charts with one of her latests albums: <span style="font-style: italic;">Short N' Sweet</span></p>
+                </div>
+                <div class="artistInfo">
+                    <div class="picContainer">
+                        <img class="artistPic" src="https://i.discogs.com/Te9TPdFJnBXjPdXasXd0JD4qZJmLcaZHtF9kVy5YA_M/rs:fit/g:sm/q:90/h:600/w:450/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE0MDE0/MC0xNzI0Nzk2MTMx/LTU3NzIuanBlZw.jpeg">
+                    </div>
+                    <p class="artistName">Oasis</p>
+                    <p class="artistDesc">A classic 90's rock band that made all-time classics like <span style="font-style: italic;">Don't Look Back in Anger</span> and <span style="font-style: italic;">Champagne Supernova</span></p>
+                </div>
+            </div>
+
+            <div id="artists2">
+                <div class="artistInfo">
+                    <div class="picContainer">
+                        <img class="artistPic" src="https://api.djmagla.com/wp-content/uploads/2021/02/Daft-Punk-1.jpg">
+                    </div>
+                    <p class="artistName">artist1</p>
+                </div>
+                <div class="artistInfo">
+                    <div class="picContainer">
+                        <img class="artistPic" src="https://i.discogs.com/7fcWSEy0lxVS9SkTNxliH1F7GboY08KZaWLCDRVNHDE/rs:fit/g:sm/q:90/h:386/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQzNzgy/ODQtMTczNDEzNzQ3/OS01MjU2LmpwZWc.jpeg">
+                    </div>
+                    <p class="artistName">artist2</p>
+                </div>
+                <div class="artistInfo">
+                    <div class="picContainer">
+                        <img class="artistPic" src="https://i.discogs.com/Te9TPdFJnBXjPdXasXd0JD4qZJmLcaZHtF9kVy5YA_M/rs:fit/g:sm/q:90/h:600/w:450/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE0MDE0/MC0xNzI0Nzk2MTMx/LTU3NzIuanBlZw.jpeg">
+                    </div>
+                    <p class="artistName">artist3</p>
+                </div>
+            </div>
+
+            <div id="artists3">
+                <div class="artistInfo">
+                    <div class="picContainer">
+                        <img class="artistPic" src="https://api.djmagla.com/wp-content/uploads/2021/02/Daft-Punk-1.jpg">
+                    </div>
+                    <p class="artistName">artist1</p>
+                </div>
+                <div class="artistInfo">
+                    <div class="picContainer">
+                        <img class="artistPic" src="https://i.discogs.com/7fcWSEy0lxVS9SkTNxliH1F7GboY08KZaWLCDRVNHDE/rs:fit/g:sm/q:90/h:386/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQzNzgy/ODQtMTczNDEzNzQ3/OS01MjU2LmpwZWc.jpeg">
+                    </div>
+                    <p class="artistName">artist2</p>
+                </div>
+                <div class="artistInfo">
+                    <div class="picContainer">
+                        <img class="artistPic" src="https://i.discogs.com/Te9TPdFJnBXjPdXasXd0JD4qZJmLcaZHtF9kVy5YA_M/rs:fit/g:sm/q:90/h:600/w:450/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE0MDE0/MC0xNzI0Nzk2MTMx/LTU3NzIuanBlZw.jpeg">
+                    </div>
+                    <p class="artistName">artist3</p>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>
+                Magaro es un proyecto académico.
+                <br>
+                Los derechos de los contenidos mostrados quedan reservados a sus propetarios.
+            </p>
+        </div>
+    </body>
+</html>
