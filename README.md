@@ -271,4 +271,14 @@ The other step in our way to build a website is, obviously, creating a HTML docu
 </body>
 ```
 
+# DAY 4
+
+## AI SCRAPING
+
+## HTML AND CSS DESIGN
+
+Once the HTML template was done, making some sketches of how the website should look was the next step to take. Since this website is focused on music recommendations, the base design had 3 sections, once per group member, in which different artist would be included, with their name and picture. An 'about us' section and a footer were also added to the design. In purpose to make the design visually appealing, each section was limited by diagonal boundaries, to give the feel of dynamism. 
+
+Also, we used Adobe Color website to get an harmonious color palette. Three colors were chosen, one for each section / group member. Finally, the font Victor Mono was also added, using the Google Fonts API.
+
 
