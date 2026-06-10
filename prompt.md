@@ -1,46 +1,56 @@
-Actúa como programador experto en Python, Flask, PostgreSQL y APIs REST.
+Prompt for Automatic Scraping
+Act as an AI agent specialized in API consumption and database management.
+I need you to execute a complete scraping of the Discogs API following these requirements:
+Database Configuration
 
-Necesito un archivo Python llamado `scraper.py` para un proyecto de clase. El programa debe consumir la API de Discogs, buscar varios artistas, guardar sus datos y sus lanzamientos en PostgreSQL, y mostrarlos en una página web con Flask.
+Host: 192.168.56.103
+Database: Magaro
+User: postgres
+Password: 1234
+Port: 5432
 
-Requisitos:
+Tables
 
-- Usar `requests`, `psycopg2`, `Flask`, `datetime`, `webbrowser` y `Timer`.
-- Conectarse a PostgreSQL con estos datos:
-  host: 192.168.56.103
-  database: Magaro 
-  user: postgres
-  password: 1234
-  port: 5432
+artists: artist_id, discogs_artist_id, name, profile, profile_img
+products: product_id, discogs_product_id, title, artist_id, release_date, origin_url, img_url, last_update
 
-Tablas disponibles:
+Execution Flow
 
-- `artists`: artist_id, discogs_artist_id, name, profile, profile_img
-- `products`: product_id, discogs_product_id, title, artist_id, release_date, origin_url, img_url, last_update
+For each artist in this list, perform a search in the Discogs API:
 
-Funcionamiento:
+Oasis, Sabrina Carpenter, Daft Punk, Laur, Team Grimoire, Akira Complex, Duki, XXXTENTACION, Ado
 
-1. Buscar artistas en la API de Discogs.
-2. Obtener sus datos principales: id, nombre, perfil, imagen y releases_url.
-3. Insertar o actualizar el artista en la tabla `artists`.
-4. Obtener hasta 10 lanzamientos por artista.
-5. Guardar cada lanzamiento en `products`.
-6. Usar `ON CONFLICT` para evitar duplicados.
-7. Crear una ruta `/` con Flask que ejecute el scraping, consulte los productos y renderice `index.html`.
-8. Enviar al template:
-   - `main_title`
-   - `products`
-9. Abrir automáticamente el navegador en `http://127.0.0.1:5000`.
 
-Lista de artistas:
+For each artist found:
 
-- Oasis
-- Sabrina Carpenter
-- Daft Punk
-- Laur
-- Team Grimoire
-- Akira Complex
-- Duki
-- XXXTENTACION
-- Ado
+Extract: id, name, profile, profile image, releases URL
+Insert or update in artists (use ON CONFLICT to avoid duplicates)
 
-El código debe estar en un solo archivo, sin clases, bien comentado y fácil de entender para estudiantes.
+
+For each artist:
+
+Get up to 10 releases from their releases URL
+Extract: product id, title, release date, origin URL, image
+Insert into products with reference to artist_id (use ON CONFLICT)
+
+
+Error Handling:
+
+If database connection fails, retry
+If API has rate limit, wait and retry
+Log any errors but continue with the next artist
+
+
+Final Result:
+
+Return a summary with:
+
+Number of artists processed
+Number of products saved
+Errors encountered
+
+
+
+
+
+Use only available tools to connect to PostgreSQL, make HTTP requests, and process JSON data.
