@@ -1,4 +1,4 @@
-Prompt for Automatic Scraping
+
 Act as an AI agent specialized in API consumption and database management.
 I need you to execute a complete scraping of the Discogs API following these requirements:
 Database Configuration
