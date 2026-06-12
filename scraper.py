@@ -12,7 +12,7 @@ FORBBIDEN_CHAR = '('
 
 DB_PARAMS = {
     "host": "192.168.56.103",
-    "database": "Magaro",
+    "database": "magaro",
     "user": "postgres",
     "password": "1234",
     "port": 5432
@@ -126,9 +126,10 @@ def scrape_and_insert_artist_products(artist_query: str):
 
             release_year = rel.get('year')
             try:
-                release_date = (int(release_year))
+                release_date = f"{int(release_year)}-01-01"  # Convierte a DATE
             except:
                 release_date = None
+
 
             cur.execute("""
                 INSERT INTO products (discogs_product_id, title, artist_id, release_date, origin_url, img_url)
@@ -143,6 +144,7 @@ def scrape_and_insert_artist_products(artist_query: str):
         conn.close()
 
     except Exception as e:
+        print(f"[ERROR] {str(e)}", flush=True)
         if conn:
             conn.rollback()
             conn.close()
@@ -158,11 +160,9 @@ def inicio():
     conn = get_db_connection()
     cur = conn.cursor()
     cur.execute("""
-        SELECT p.title, a.name, g.name, f.name, p.img_url 
+        SELECT p.title, a.name, p.img_url 
         FROM products p
         JOIN artists a ON p.artist_id = a.artist_id
-        LEFT JOIN genres g ON p.genre_id = g.genre_id
-        LEFT JOIN formats f ON p.format_id = f.format_id
         ORDER BY p.last_update DESC;
     """)
     db_products = cur.fetchall()

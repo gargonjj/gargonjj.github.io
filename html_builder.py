@@ -8,12 +8,12 @@ from threading import Timer
 
 DB_PARAMS = {
     "host": "192.168.56.103",
-    "database": "Magaro",
+    "database": "magaro",
     "user": "postgres",
     "password": "1234",
     "port": 5432
 }
-FILE_PATH = 'templates/index.html'
+FILE_PATH = os.path.join(os.path.dirname(__file__), 'templates/index.html')
 
 def get_db_connection():
     con = psycopg2.connect(**DB_PARAMS)
@@ -142,5 +142,9 @@ def write_html(artists_names: list, pic_urls: list):
 """
         f.write(html_code)
 
-#write_html()
-get_db_connection()
+con = get_db_connection()
+artists = get_artists(con)
+artists_names = get_artists_names(artists)
+pic_urls = get_pic_urls(artists)
+write_html(artists_names, pic_urls)
+con.close()
